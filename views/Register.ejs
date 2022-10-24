@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/register" method="post">
+        <div>
+        <label for="fName">First Name:</label>
+        <input type="text" name="fName" id="">
+        </div>
+        <div>
+        <label for="lName">Last Name:</label>
+        <input type="text" name="lName" id="">
+        </div>
+        <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="" required>
+        </div>
+        <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" minlength="8" required>
+    </div>
+    <div>
+        <label for="cpassword">Confirm Password</label>
+        <input type="password" name="cpassword" id="cpassword" minlength="8" onchange="check()" />
+        <span id="message"></span>
+    </div>
+    <div>
+        <label for="phone">Phone</label>
+        <input type="tel" name="phone" id="">
+    </div>
+        <button type="submit" id="submit">Create</button>
+    </form>
+    <script>
+        function check(){
+            document.getElementById("message").innerHTML = "checking";
+            if(document.getElementById("password").value === document.getElementById("cpassword").value){
+                document.getElementById("message").innerHTML = "Passwords Match";
+                document.getElementById("submit").disabled = false;
+            }else{
+                document.getElementById("submit").disabled = true;
+                document.getElementById("message").innerHTML = "Passwords do not match";
+            }            
+        }
+    </script>
+</body>
+</html>
